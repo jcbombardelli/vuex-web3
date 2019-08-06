@@ -1,1 +1,11 @@
+title: ooo
+email: ooo
+description: > 
+  Write ....
+baseUrl: ""
+url: ""
+twitter_username: jcbombardelli
+github_username: jcbombardelli
+
+markdown: kramdown
 theme: jekyll-theme-cayman
