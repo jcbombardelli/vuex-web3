@@ -1,0 +1,32 @@
+{
+  "name": "vuex-web3",
+  "version": "1.0.2",
+  "description": "",
+  "directories": {
+    "doc": "docs"
+  },
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jcbombardelli/vuex-web3.git"
+  },
+  "author": "JC Bombardelli <jc.bombardelli@live.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jcbombardelli/vuex-web3/issues"
+  },
+  "homepage": "https://github.com/jcbombardelli/vuex-web3#readme",
+  "dependencies": {
+    "web3": "^1.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "babel-loader": "^8.0.6",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6"
+  }
+}
