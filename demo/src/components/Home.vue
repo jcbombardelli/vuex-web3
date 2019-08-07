@@ -1,24 +1,24 @@
 <template>
-  <div class="central">
-    <b-container fluid>
-      <b-row>
-        <b-col>
-            <v-qrcode :value="address" :size="size" level="H"></v-qrcode>
+  <div class="container container-top">
+    <b-container>
+      <b-row class="text-center">
+        <b-col></b-col>
+        <b-col sm="12" md="9" lg="7">
+          <b-card border-variant="info" header="Info" align="center" >
+            <v-qrcode :value="address" :size="size" level="H" slot="header"/>
+
+            <h5>Address</h5>
+            <h6>{{address}}</h6>
+
+            <b-card-body>
+              <b-card-title>Balance</b-card-title>
+              <b-card-sub-title class="mb-2">Ξ {{balance}}</b-card-sub-title>
+              <b-card-text>{{network}}</b-card-text>
+            </b-card-body>
+
+          </b-card>
         </b-col>
-        <b-col>
-          <b-card-body title="Balance">
-            <b-card-text>
-              {{balance}}
-            </b-card-text>
-          </b-card-body>
-        </b-col>
-        <b-col>
-          <b-card-body title="Network">
-            <b-card-text>
-              {{network}}
-            </b-card-text>
-          </b-card-body>
-        </b-col>
+        <b-col></b-col>
       </b-row>
     </b-container>
   </div>
@@ -31,27 +31,46 @@ import QrcodeVue from 'qrcode.vue'
 
 export default {
   name: 'home',
+  components: {
+    'v-qrcode': QrcodeVue
+  },
   data () {
     return {
-      size: 300
+      width: 0
     }
   },
   computed: {
+    size () {
+      return Math.min(parseInt(this.width * 0.30), 500)
+    },
     ...mapState({
       address: state => state.w3.coinbase,
       balance: state => state.w3.balance,
       network: state => state.w3.network
     })
   },
-  components: {
-    'v-qrcode': QrcodeVue
+  created () {
+    window.addEventListener('resize', this.handleResize)
+    this.handleResize()
+  },
+  destroyed () {
+    window.removeEventListener('resize', this.handleResize)
+  },
+  methods: {
+    handleResize () {
+      this.width = window.innerWidth
+    }
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.central{
-  margin: 3%;
+.container-top{
+  margin-top: 2%;
+}
+.card-header{
+  background-color: rgba(0, 0, 0, 0.000000001);
+  border-bottom: 0px;
 }
 </style>
