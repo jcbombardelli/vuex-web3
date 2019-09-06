@@ -10,6 +10,10 @@
 
 ### 🏠 [Homepage](https://jcbombardelli.github.io/vuex-web3)
 
+## Prereqs
+ 
+If you are running Windows OS and have never worked with Dapps, be sure to follow this tutorial first. https://medium.com/@jcbombardelli/configurando-web3-em-um-projeto-node-js-com-windows-984ca1224fa (pt-BR text)
+
 ## Install
 
 ```sh
